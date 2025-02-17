@@ -13,7 +13,7 @@ RUN echo "$(cat /home/vscode/.zshrc)" | awk '{gsub(/plugins=\(git\)/, "plugins=(
 
 # Create alias for sail
 RUN echo "alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'" >> /home/vscode/.zshrc
-RUN echo 'export PATH="/workspaces/project/vendor/bin/:$PATH"' >> /home/vscode/.zshrc
+RUN echo 'export PATH="/vendor/bin/:$PATH"' >> /home/vscode/.zshrc
 
 # Define the location of the npm cache. This is needed because permission problems
 # will occur if the cache is stored in the default location (/root/tmp/.npm)
