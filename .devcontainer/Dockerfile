@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/vscode/devcontainers/base:ubuntu-22.04
 
-RUN mkdir -p /home/vscode/project
-WORKDIR /home/vscode/project
+RUN mkdir -p /workspaces
+WORKDIR /workspaces
 
 RUN git clone https://github.com/zsh-users/zsh-completions.git /home/vscode/.oh-my-zsh/custom/plugins/zsh-completions && \
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /home/vscode/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting && \
@@ -19,5 +19,5 @@ RUN echo 'export PATH="/workspaces/project/vendor/bin/:$PATH"' >> /home/vscode/.
 # will occur if the cache is stored in the default location (/root/tmp/.npm)
 RUN echo 'export npm_config_cache=/home/vscode/tmp/npm-cache' >> /home/vscode/.zshrc
 
-RUN chown -R vscode:vscode /home/vscode/project
-RUN chmod -R 700 /home/vscode/project
+RUN chown -R vscode:vscode /workspaces
+RUN chmod -R 700 /workspaces
